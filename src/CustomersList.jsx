@@ -2,7 +2,7 @@ import { timers } from "jquery";
 import React, { Component } from "react";
 
 
-export default class MainContent extends Component{
+export default class CustomersList extends Component{
     state = {
         pageTitle: "Customers", 
         customersCount: 5,
@@ -105,7 +105,15 @@ export default class MainContent extends Component{
                 );
             }));        
     };
+    //Executes wen user clicks on "Change Picture" Button in the grid
+    //Receives the 'customer' object and index of the currently clicked customer
     onChangePictureClick= (cust, index) =>{
-                
+
+        //gets existing customers 
+                var custArr = this.state.customers
+                custArr[index].photo= "https://picsum.photos/id/1015/60";
+
+                //Updates customer array in the state
+                this.setState({customers: custArr});
     }
 }
